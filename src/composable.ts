@@ -1,7 +1,9 @@
-import { KeycloakInstance } from 'keycloak-js'
-import { toRefs, Ref } from 'vue'
+import type Keycloak from 'keycloak-js'
+import type { Ref } from 'vue'
+import  { toRefs } from 'vue'
 import { getKeycloak } from './keycloak'
-import { KeycloakState, state } from './state'
+import type { KeycloakState } from './state'
+import { state } from './state'
 import { isNil } from './utils'
 
 export interface KeycloakComposable {
@@ -10,9 +12,10 @@ export interface KeycloakComposable {
   isPending: Ref<boolean>
   token: Ref<string>
   username: Ref<string>
+  sid: Ref<string>
   roles: Ref<string[]>
   resourceRoles: Ref<Record<string, string[]>>
-  keycloak: KeycloakInstance
+  keycloak: Keycloak
   hasRoles: (roles: string[]) => boolean
   hasResourceRoles: (roles: string[], resource: string) => boolean
 }

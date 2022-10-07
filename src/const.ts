@@ -1,6 +1,6 @@
-import Keycloak from 'keycloak-js'
+import type { KeycloakInitOptions } from 'keycloak-js'
 
-export const defaultInitConfig: Keycloak.KeycloakInitOptions = {
+export const defaultInitConfig: KeycloakInitOptions = {
   flow: 'standard',
   checkLoginIframe: false,
   onLoad: 'login-required',
